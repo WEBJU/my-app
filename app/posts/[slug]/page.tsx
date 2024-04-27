@@ -1,8 +1,10 @@
 'use client';
 
+import NavBar from '@/components/NavBar';
 import { findPostBySlug } from '../../../utils/blogData';
 import Link from 'next/link';
 import React from 'react';
+import Footer from '@/components/Footer';
 
 const Post = ({ params }: { params: { slug: string } }) => {
   const post = findPostBySlug(params.slug);
@@ -12,6 +14,9 @@ const Post = ({ params }: { params: { slug: string } }) => {
   }
 
   return (
+    <div>
+      <NavBar /> {/* Render the NavBar component */}
+   
     <div className="container mx-auto mt-8">
       <img
         src={`/${post.image}`}
@@ -24,6 +29,8 @@ const Post = ({ params }: { params: { slug: string } }) => {
       <Link href="/" className="text-blue-600">
         Back to Homepage
       </Link>
+    </div>
+    <Footer/>
     </div>
   );
 };
