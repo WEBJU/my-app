@@ -7,7 +7,6 @@ interface BlogCardProps {
 }
 
 const BlogCard: React.FunctionComponent<BlogCardProps> = ({ post }) => {
-  console.log('Slug:', post.slug);
   return (
     <div className="bg-white rounded-lg shadow-md p-4">
       <Link href={`/posts/${post.slug}`}>
