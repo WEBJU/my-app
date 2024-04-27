@@ -14,7 +14,7 @@ const NavBar: React.FC<NavBarProps> = ({ search }) => {
       <div className="container mx-auto flex justify-between items-center">
         <div>
           <Link href="/" passHref>
-            <span className="text-white font-semibold text-xl">Blog Posts</span>
+          <img src="/logo.jpeg" alt="Logo" className="h-8" /> 
           </Link>
         </div>
         <div className="flex items-center">

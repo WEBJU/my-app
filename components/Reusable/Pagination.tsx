@@ -9,7 +9,7 @@ const Pagination: React.FC<PaginationProps> = ({
   currentPage,
   setCurrentPage,
 }) => {
-  const pagesCount = Math.ceil(totalPosts / 10); // Assuming 10 posts per page
+  const pagesCount = Math.ceil(totalPosts / 10); 
 
   const handlePageChange = (pageNumber: number) => {
     if (pageNumber < 1 || pageNumber > pagesCount) return; // Handle invalid pages
