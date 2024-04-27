@@ -2,14 +2,13 @@
 // components/NavBar.tsx
 import React, { useState } from 'react';
 import Link from 'next/link';
+import SearchBar from './Reusable/Search';
 
-const NavBar: React.FC = () => {
-  const [searchTerm, setSearchTerm] = useState('');
+interface NavBarProps {
+  search: (searchTerm: any) => void; // Update the type of the search prop
+}
 
-  const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchTerm(event.target.value);
-  };
-
+const NavBar: React.FC<NavBarProps> = ({ search }) => {
   return (
     <nav className="bg-[#404287] p-4">
       <div className="container mx-auto flex justify-between items-center">
@@ -19,18 +18,21 @@ const NavBar: React.FC = () => {
           </Link>
         </div>
         <div className="flex items-center">
-        <Link href={`/search?q=${searchTerm}`} passHref>
+          <Link href={`/blogs`} passHref>
             <button className=" text-white px-3 hover:underline">Blogs</button>
           </Link>
-          <input
+          {/* <input
             type="text"
-            className="bg-gray-100 mr-4 px-3 py-2 rounded-md focus:outline-none focus:ring-1 focus:ring-inset focus:ring-white"
+            className="bg-gray-100 text-gray-600 mr-4 px-3 py-2 rounded-md focus:outline-none focus:ring-1 focus:ring-inset focus:ring-white"
             placeholder="Search Blog..."
             value={searchTerm}
             onChange={handleSearchChange}
-          />
-          <Link href={`/search?q=${searchTerm}`} passHref>
-            <button className="border p-2 rounded text-white bg hover:underline">Create Post Blog</button>
+          /> */}
+          <SearchBar onSearch={search} />
+          <Link href={`/create`} passHref>
+            <button className="border p-2 rounded text-white bg hover:underline">
+              Create Post Blog
+            </button>
           </Link>
         </div>
       </div>
